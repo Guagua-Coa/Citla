@@ -22,22 +22,22 @@
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 600;
     }
     .carta {
       background: #fff;
-      padding: 2rem 2.5rem;
+      padding: 1.5rem 1.5rem;
       border-radius: 1rem;
       max-width: 700px;
       margin: 2rem auto;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       font-family: 'Roboto Slab', serif;
-      line-height: 1.8;
+      line-height: 1.7;
     }
     .carta p {
       white-space: pre-line;
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
     .firma {
       margin-top: 2rem;
@@ -47,21 +47,21 @@
     }
     .spotify-embed {
       max-width: 700px;
-      margin: 2rem auto;
+      margin: 1.5rem auto;
       border-radius: 1rem;
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
     .btn-center {
       text-align: center;
-      margin: 2rem;
+      margin: 2rem 1rem;
     }
     button {
       background: #7b2ff7;
       color: white;
       border: none;
-      padding: 1rem 3rem;
-      font-size: 1.2rem;
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
       border-radius: 50px;
       cursor: pointer;
       box-shadow: 0 6px 12px rgba(123,47,247,0.6);
@@ -84,6 +84,21 @@
       to {
         transform: translateY(-150vh);
         opacity: 0;
+      }
+    }
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      .carta {
+        padding: 1rem;
+      }
+      .carta p {
+        font-size: 0.95rem;
+      }
+      button {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
       }
     }
   </style>
