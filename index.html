@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para ti Citla, con todo mi amor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(135deg, #8e2de2, #4a00e0);
+      color: #333;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+    header {
+      background: linear-gradient(90deg, #7b2ff7, #f107a3);
+      color: white;
+      padding: 2.5rem 1rem;
+      text-align: center;
+      font-family: 'Lora', serif;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+    main {
+      max-width: 700px;
+      margin: 3rem auto;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      padding: 2rem 2.5rem;
+      position: relative;
+    }
+    main p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      font-family: 'Lora', serif;
+    }
+    h2 {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      font-size: 2rem;
+      text-align: center;
+      color: #7b2ff7;
+    }
+    .spotify-embed {
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(123,47,247,0.5);
+    }
+    .btn-center {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    button {
+      background: #7b2ff7;
+      color: white;
+      border: none;
+      padding: 1rem 3rem;
+      font-size: 1.25rem;
+      font-family: 'Lora', serif;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(123,47,247,0.6);
+      transition: background 0.3s ease;
+      animation: pulse 2.5s infinite;
+    }
+    button:hover {
+      background: #f107a3;
+    }
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 6px 12px rgba(123,47,247,0.6);
+      }
+      50% {
+        box-shadow: 0 10px 25px rgba(241,7,163,0.8);
+      }
+    }
+    .heart {
+      position: fixed;
+      top: 100%;
+      font-size: 2rem;
+      color: #f107a3;
+      animation: floatUp 3s linear forwards;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    @keyframes floatUp {
+      to {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Para ti, la persona que lo es todo</h1>
+  </header>
+  <main>
+    <p>
+      A ti, que has sido luz incluso cuando no supe ver, ni cuidarte.<br/>
+      A ti, que mereces todo lo bueno de este mundo.<br/>
+      Lo único que quiero es que sientas mi respeto, mi gratitud, mi amor, que hoy en dia tengo por ti.<br/>
+      Perdón por el daño que eh causado en ti, no soy merecedor de ti y comprendere si es que no quieres estar mas conmigo. Este es un pequeño regalo, porque nunca dejaré de estar orgulloso de ti, ni mucho menos de amarte.
+      No quiero hacerte mas daño, pero quiero luchar por ti, por nosotros, por lo que fuimos y por lo que podemos ser.<br/>
+      Gracias por todo lo que me has enseñado, por todo lo que me has dado, por ser quien eres.
+      En este momento, quiero que sepas que eres una persona increíble, llena de luz y amor, y que siempre tendrás un lugar especial en mi corazón.<br/>
+      Espero que disfrutes de esta playlist, creada con todo mi cariño para ti. Cada canción es un reflejo de lo que siento y de los momentos que hemos compartido. Quiero que sepas que siempre estaré aquí para ti, apoyándote y animándote en todo lo que hagas desde lejos.<br/>
+      Estuve pensando todo estos meses en como poder pedirte ser mi pareja, y creo esto pudo haber sido una buena forma, con unas lindas flores....</br>
+      Solo si hubiera una forma para regresar el tiempo y cambiar las cosas, probablemente lo haria para no hacerte daño, aunque hoy en dia no fueramos nada. Solo puedo aprender de mis errores.<br/>
+      Y solo quiero hacerte feliz, porque es lo que mereces, si tu decision es ya no intentarlo, quiero que sepas que estare esperandote por si algun dia quieres volver a intentar, ya madurare y juro que sere mejor para ti, quiero ser tu motor, asi como tu lo fuiste conmigo.</br/>
+      Siempre estaras en mis recuerdos, tanto como en mi corazon.</br>
+      Ten Mucho exito en tus ensayos, espero poder verte lograr cada logro que obtengas.</br>
+      Te Amo Hoy, Te Amare Mañana, y Te Amare Siempre.</br>
+    </p>
+
+    <h2>Mi playlist para ti</h2>
+    <div class="spotify-embed">
+      <iframe src="https://open.spotify.com/embed/playlist/5iru5X8TmF8mcjfv5XSZD5" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" allowfullscreen></iframe>
+    </div>
+
+    <div class="btn-center">
+      <button id="graciasBtn">Gracias por existir</button>
+    </div>
+  </main>
+
+  <script>
+    const button = document.getElementById('graciasBtn');
+
+    button.addEventListener('click', () => {
+      alert('Siempre serás importante. Gracias por leer esto.');
+      for (let i = 0; i < 30; i++) {
+        createHeart();
+      }
+    });
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 3000);
+    }
+
+  </script>
+</body>
+</html>
