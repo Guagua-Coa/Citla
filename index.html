@@ -13,6 +13,8 @@
       font-family: 'Open Sans', sans-serif;
       color: #333;
       overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
     }
     header {
       text-align: center;
@@ -30,10 +32,12 @@
       padding: 1.5rem 1.5rem;
       border-radius: 1rem;
       max-width: 700px;
-      margin: 2rem auto;
+      margin: 2rem auto 4rem;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       font-family: 'Roboto Slab', serif;
       line-height: 1.7;
+      position: relative;
+      z-index: 1;
     }
     .carta p {
       white-space: pre-line;
@@ -51,10 +55,14 @@
       border-radius: 1rem;
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 1;
     }
     .btn-center {
       text-align: center;
-      margin: 2rem 1rem;
+      margin: 2rem 1rem 3rem;
+      position: relative;
+      z-index: 1;
     }
     button {
       background: #7b2ff7;
@@ -86,6 +94,68 @@
         opacity: 0;
       }
     }
+    .contenedor-flor-mensaje {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      max-width: 220px;
+      font-style: italic;
+      z-index: 1000;
+      user-select: none;
+    }
+    .mensaje {
+      color: #6d071a;
+      background: #fff3f2;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-size: 1rem;
+      margin: 0;
+      pointer-events: none;
+    }
+    .flor {
+      width: 80px;
+      user-select: none;
+      pointer-events: none;
+    }
+    .petalo {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      pointer-events: none;
+      image-rendering: pixelated;
+      animation: caerOscilante 10s linear forwards;
+      z-index: 999;
+    }
+    .petalo-detenido {
+  animation: none !important;
+  position: absolute;
+  z-index: 0;
+}
+@keyframes caerOscilante {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(-20px, 25vh);
+  }
+  50% {
+    transform: translate(20px, 40vh);
+  }
+  75% {
+    transform: translate(-15px, 45vh);
+  }
+  100% {
+    transform: translate(0, 50vh);
+    opacity: 1; /* no se desvanece */
+  }
+}
     @media (max-width: 480px) {
       header h1 {
         font-size: 1.8rem;
@@ -100,6 +170,18 @@
         padding: 0.8rem 2rem;
         font-size: 0.9rem;
       }
+      .contenedor-flor-mensaje {
+        max-width: 150px;
+        top: 0.5rem;
+        right: 0.5rem;
+      }
+      .flor {
+        width: 60px;
+      }
+      .mensaje {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.8rem;
+      }
     }
   </style>
 </head>
@@ -110,34 +192,36 @@
 
   <div class="carta">
     <p>
-A ti, que fuiste luz incluso en mis momentos más ciegos.
-A ti, que mereces todo lo bueno que la vida pueda darte.
-Solo quiero que sientas cuánto te respeto, cuánto te agradezco, y cuánto te quiero hoy.
-
+No se como empezar esto, nunca eh hecho algo asi, llevo semanas pensando que hacer,
+Aun recuerdo la vez cuando hice una app para los dos de mensajeria,
+sabia un poco de que estarias ausente mas sin embrago no funciono.
+Ya no se que hacer, si esperar el tiempo como lo querias o solo ir a tus brazos y verte otra vez, 
+la eh psasado un poco mal con tu ausencia, y no se si esto te ayude o no, 
+pero quiero que sepas que siempre estare aqui para ti.
+Te extraño de una forma inexplicable y no se cual sea tu futura desicion, y no quiero que me des una respuesta ahora,
+mucho menos quiero precionarte, solo supongo que me sentire un poco mejor desahogado y sin este nudo en la garganta.
+Y solo quiero decirte que espero en este tiempo tengas exito en todo lo que te propongas,
+y que en el dia que quieras volver, solo aqui estare esperandote... con los brazos abiertos
+Solo quiero que sientas cuánto te respeto, cuánto te agradezco, y cuánto te quiero hoy en día.
 Perdón por el daño que te causé. Nunca quise hacerte mal, pero sé que lo hice.
+Estoy demasiado arrepentido y no solo desde el tiempo, desde siempre.
+Porque simplemente no merecias eso,
 Sé que no tengo derecho a pedirte nada, y entiendo si decides que ya no quieres seguir conmigo.
 Esto es solo un pequeño regalo, porque sigo sintiéndome orgulloso de ti… y porque sigo amándote.
-No quiero que sufras más por mí. Solo quiero luchar por ti, por nosotros, por lo que fuimos y por lo que todavía podríamos ser.
-
+No quiero que sufras más por mí. 
+Solo quiero luchar por ti, por nosotros, por lo que fuimos y por lo que todavía podríamos ser.
 Gracias por lo que me enseñaste, por lo que me diste, por ser esa persona tan increíble.
-Eres luz, eres amor, eres fuerza… y siempre tendrás un rincón especial en mi corazón.
-
+Eres luz, eres amor, eres fuerza… y siempre tendrás un rincón especial en mi corazoncito.
 Espero que disfrutes la playlist que hice para ti, con todo mi cariño.
-Cada canción lleva un pedacito de lo que siento, de lo que vivimos.
+Cada canción lleva un pedacito de lo que siento y de lo que vivimos.
 Siempre estaré para ti, aunque sea a la distancia, deseando que logres todo lo que sueñas.
-
-He pensado tanto en cómo pedirte que volvamos a intentarlo.
-Quizá esto no sea suficiente. Quizá debí haberte dado unas flores… o solo un abrazo.
-Pero más que nada quiero que sepas lo mucho que me importas.
 Si pudiera dar marcha atrás y evitar todo lo que te dolió, lo haría sin pensarlo.
 Hoy solo me queda aprender, crecer y esforzarme por ser alguien mejor.
-
 Lo único que quiero de verdad es que seas feliz, porque te lo mereces.
 Y si decides que ya no quieres volver, lo entenderé.
 Pero aquí estaré, por si algún día decides regresar.
 Prometo cambiar, madurar, y ser el compañero que mereces.
 Quiero volver a ser tu impulso, como tú lo fuiste para mí.
-
 Siempre te llevaré en mis recuerdos y en mi corazón.
 Te deseo lo mejor, en tus ensayos, en la vida, en todo.
 Te amo hoy. Te amaré mañana. Y, pase lo que pase, te voy a amar siempre.
@@ -150,29 +234,69 @@ Te amo hoy. Te amaré mañana. Y, pase lo que pase, te voy a amar siempre.
   </div>
 
   <div class="btn-center">
-    <button id="graciasBtn">Gracias por existir</button>
+    <button id="graciasBtn">Gracias por alegrar mi vida</button>
   </div>
 
-  <script>
-    const button = document.getElementById('graciasBtn');
-    button.addEventListener('click', () => {
-      alert('Siempre serás importante. Gracias por leer esto.');
-      for (let i = 0; i < 30; i++) {
-        createHeart();
-      }
-    });
+  <div class="contenedor-flor-mensaje" aria-label="Mensaje de amor con rosa">
+    <div class="mensaje">Te seguiré amando hasta que esta flor se quede sin pétalos.</div>
+    <img src="rosa.png" alt="Rosa" class="flor" />
+  </div>
 
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.textContent = '❤️';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
-      document.body.appendChild(heart);
-      setTimeout(() => {
-        heart.remove();
-      }, 4000);
+<script>
+  setInterval(() => {
+    const flor = document.querySelector('.flor');
+    if (!flor) return;
+    const rectFlor = flor.getBoundingClientRect();
+
+    // Coordenadas ajustadas con scroll
+    const x = rectFlor.left + rectFlor.width / 2 - 4;
+    const y = rectFlor.top + window.scrollY + 15; // Ajusta el 15 si quieres más precisión
+
+    crearPetalo(x, y);
+  }, 2000);
+
+  function crearPetalo(x, y) {
+    const petalo = document.createElement('img');
+    petalo.className = 'petalo';
+    petalo.src = 'petalo.png';
+    petalo.style.left = x + 'px';
+    petalo.style.top = y + 'px';
+
+    document.body.appendChild(petalo);
+
+    setTimeout(() => {
+      const rect = petalo.getBoundingClientRect();
+      petalo.classList.add('petalo-detenido');
+
+      // Simular acumulación con leve variación
+      const offsetX = (Math.random() - 0.5) * 30;
+      const offsetY = Math.random() * 10;
+
+      petalo.style.left = (rect.left + offsetX) + 'px';
+      petalo.style.top = (window.scrollY + window.innerHeight * 0.5 + offsetY) + 'px'; // acumulan a 50% altura
+
+    }, 6000);
+  }
+
+  const button = document.getElementById('graciasBtn');
+  button.addEventListener('click', () => {
+    alert('Siempre serás importante. Gracias por leer esto.');
+    for (let i = 0; i < 30; i++) {
+      createHeart();
     }
-  </script>
+  });
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '❤️';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+    document.body.appendChild(heart);
+    setTimeout(() => {
+      heart.remove();
+    }, 4000);
+  }
+</script>
 </body>
 </html>
