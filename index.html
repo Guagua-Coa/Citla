@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para ti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #d7d2cc, #304352);
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  cursor: pointer;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+/* Menú animado */
+.menu-ramificado {
+  max-width: 600px;
+  margin: 1rem auto 2rem;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  transition: height 0.5s ease;
+}
+
+.rama {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 40px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: all 0.8s ease;
+}
+
+.linea-rama {
+  height: 6px;
+  background: #4b2e2e;
+  width: 0%;
+  transition: width 1s ease;
+  border-radius: 3px;
+  box-shadow: inset 0 0 2px #000;
+}
+
+.rosa {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin: 0 8px;
+  position: relative; /* Para posicionar tooltip */
+}
+
+.rosa-izq {
+  transform: rotate(-20deg);
+}
+
+.rosa-der {
+  transform: rotate(20deg);
+}
+
+.contenido-menu {
+  list-style: none;
+  margin-top: 1rem;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.contenido-menu li {
+  margin: 0.5rem 0;
+  color: #333; /* gris oscuro */
+  font-weight: bold;
+  font-family: 'Roboto Slab', serif;
+}
+
+.menu-abierto .rama {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.menu-abierto .linea-rama {
+  width: 80%;
+}
+
+.menu-abierto .contenido-menu {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tooltip-magia {
+  position: absolute;
+  background: linear-gradient(to bottom, #2d013a, #120212);
+  border: 1px solid #440d69;
+  box-shadow: 0 0 8px #5b19a8, 0 0 20px #3f0b61;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  white-space: pre-line;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+  text-shadow: 1px 1px 0 #000;
+}
+
+@font-face {
+  font-family: 'Minecraftia';
+  src: url('Minecraftia.ttf') format('truetype');
+}
+
+@keyframes flotar {
+  0% { transform: translateY(-4px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(-4px); }
+}
+
+.letrero-minecraft {
+  position: absolute;
+  top: 2rem;
+  left: 15rem;
+  color: #ffff55;
+  padding: 10px 16px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  text-align: left;
+  z-index: 100;
+  animation: zoomLoop 1.5s ease-in-out infinite;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-shadow: 1px 1px 0 #000;
+}
+
+
+@keyframes zoomLoop {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+.flecha {
+  display: block;
+  font-size: 18px;
+  margin-top: 5px;
+  animation: flechaBrinca 1s infinite;
+}
+
+@keyframes flechaBrinca {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+
+.menu-ramificado:hover .tooltip-magia {
+  opacity: 1;
+}
+
+.carta {
+  background: #fff;
+  padding: 1.5rem 1.5rem;
+  border-radius: 1rem;
+  max-width: 700px;
+  margin: 2rem auto 4rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  font-family: 'Roboto Slab', serif;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+.carta p {
+  white-space: pre-line;
+  font-size: 1rem;
+}
+
+.firma {
+  margin-top: 2rem;
+  text-align: right;
+  font-style: italic;
+  color: #7b2ff7;
+}
+
+.spotify-embed {
+  max-width: 700px;
+  margin: 1.5rem auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.btn-center {
+  text-align: center;
+  margin: 2rem 1rem 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+button {
+  background: #7b2ff7;
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(123,47,247,0.6);
+  transition: background 0.3s ease;
+  font-family: 'Roboto Slab', serif;
+}
+
+button:hover {
+  background: #f107a3;
+}
+
+.heart {
+  position: fixed;
+  top: 100%;
+  font-size: 2rem;
+  color: #f107a3;
+  animation: floatUp 4s linear forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-150vh);
+    opacity: 0;
+  }
+}
+
+.contenedor-flor-mensaje {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  max-width: 220px;
+  font-style: italic;
+  z-index: 1000;
+  user-select: none;
+}
+
+.mensaje {
+  color: #6d071a;
+  background: #fff3f2;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  margin: 0;
+  pointer-events: none;
+}
+
+.flor {
+  width: 80px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.petalo {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  image-rendering: pixelated;
+  animation: caerOscilante 10s linear forwards;
+  z-index: 999;
+}
+
+.petalo-detenido {
+  animation: none !important;
+  position: absolute;
+  z-index: 0;
+}
+
+@keyframes caerOscilante {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(-20px, 25vh);
+  }
+  50% {
+    transform: translate(20px, 40vh);
+  }
+  75% {
+    transform: translate(-15px, 45vh);
+  }
+  100% {
+    transform: translate(0, 50vh);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  .carta {
+    padding: 1rem;
+  }
+  .carta p {
+    font-size: 0.95rem;
+  }
+  button {
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+  }
+  .contenedor-flor-mensaje {
+    max-width: 150px;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+  .flor {
+    width: 60px;
+  }
+  .mensaje {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.8rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Para ti</h1>
+  </header>
+
+<div class="menu-ramificado" id="menuRamificado">
+<div class="rama" id="ramaInteractiva">
+  <img src="libro.png" alt="Rosa izquierda" class="rosa rosa-izq" id="rosaIzq" />
+  <div class="linea-rama"></div>
+  <img src="libro.png" alt="Rosa derecha" class="rosa rosa-der" id="rosaDer" />
+</div>
+  <!-- Tooltip estilo Minecraft -->
+<div class="tooltip-magia" id="tooltipMagia">
+  <div style="color: #55ffff">Mi amor por ti</div>
+  <div style="color: #ffffff">Encantamientos:</div>
+  <div>
+    <span style="color: #55ffff">Proteccion IV</span><br />
+    <span style="color: #55ffff">Infinidad I</span><br />
+    <span style="color: #55ffff">Reparacion I</span><br />
+    <span style="color: #55ffff">Irrompible III</span><br />
+    <span style="color: #55ffff">Fortuna III</span><br />
+    <span style="color: #55ffff">Poder V</span><br />
+    <span style="color: #55ffff">Lealtad III</span><br />
+  </div>
+</div>
+  <ul class="contenido-menu">
+    <li><a href="Julio.html">Julio</a></li>
+    <li><a href="Carta.html">Carta</a></li>
+    <li><a href="Playlist.html">Playlist</a></li>
+  </ul>
+</div>
+  <div class="letrero-minecraft">
+  <span class="flecha">¡Dale clic al titulo!</span>
+</div>
+  <div class="carta">
+    <p>
+No se como empezar esto, nunca eh hecho algo asi, llevo semanas pensando que hacer,
+Aun recuerdo la vez cuando hice una app para los dos de mensajeria,
+sabia un poco de que estarias ausente mas sin embrago no funciono.
+Ya no se que hacer, si esperar el tiempo como lo querias o solo ir a tus brazos y verte otra vez, 
+la eh psasado un poco mal con tu ausencia, y no se si esto te ayude o no, 
+pero quiero que sepas que siempre estare aqui para ti.
+Te extraño de una forma inexplicable y no se cual sea tu futura desicion, y no quiero que me des una respuesta ahora,
+mucho menos quiero precionarte, solo supongo que me sentire un poco mejor desahogado y sin este nudo en la garganta.
+Y solo quiero decirte que espero en este tiempo tengas exito en todo lo que te propongas,
+y que en el dia que quieras volver, solo aqui estare esperandote... con los brazos abiertos
+Solo quiero que sientas cuánto te respeto, cuánto te agradezco, y cuánto te quiero hoy en día.
+Perdón por el daño que te causé. Nunca quise hacerte mal, pero sé que lo hice.
+Estoy demasiado arrepentido y no solo desde el tiempo, desde siempre.
+Porque simplemente no merecias eso,
+Sé que no tengo derecho a pedirte nada, y entiendo si decides que ya no quieres seguir conmigo.
+Esto es solo un pequeño regalo, porque sigo sintiéndome orgulloso de ti… y porque sigo amándote.
+No quiero que sufras más por mí. 
+Solo quiero luchar por ti, por nosotros, por lo que fuimos y por lo que todavía podríamos ser.
+Gracias por lo que me enseñaste, por lo que me diste, por ser esa persona tan increíble.
+Eres luz, eres amor, eres fuerza… y siempre tendrás un rincón especial en mi corazoncito.
+Espero que disfrutes la playlist que hice para ti, con todo mi cariño.
+Cada canción lleva un pedacito de lo que siento y de lo que vivimos.
+Siempre estaré para ti, aunque sea a la distancia, deseando que logres todo lo que sueñas.
+Si pudiera dar marcha atrás y evitar todo lo que te dolió, lo haría sin pensarlo.
+Hoy solo me queda aprender, crecer y esforzarme por ser alguien mejor.
+Lo único que quiero de verdad es que seas feliz, porque te lo mereces.
+Y si decides que ya no quieres volver, lo entenderé.
+Pero aquí estaré, por si algún día decides regresar.
+Prometo cambiar, madurar, y ser el compañero que mereces.
+Quiero volver a ser tu impulso, como tú lo fuiste para mí.
+Siempre te llevaré en mis recuerdos y en mi corazón.
+Te deseo lo mejor, en tus ensayos, en la vida, en todo.
+Te amo hoy. Te amaré mañana. Y, pase lo que pase, te voy a amar siempre.
+    </p>
+    <div class="firma">Con todo mi cariño</div>
+  </div>
+
+  <div class="spotify-embed">
+    <iframe src="https://open.spotify.com/embed/playlist/5iru5X8TmF8mcjfv5XSZD5" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+
+  <div class="btn-center">
+    <button id="graciasBtn">Gracias por alegrar mi vida</button>
+  </div>
+
+  <div class="contenedor-flor-mensaje" aria-label="Mensaje de amor con rosa">
+    <div class="mensaje">Te seguiré amando hasta que esta flor se quede sin pétalos.</div>
+    <img src="rosa.png" alt="Rosa" class="flor" />
+  </div>
+
+  <script>
+    setInterval(() => {
+      const flor = document.querySelector('.flor');
+      if (!flor) return;
+      const rectFlor = flor.getBoundingClientRect();
+      const x = rectFlor.left + rectFlor.width / 2 - 4;
+      const y = rectFlor.top + window.scrollY + 15;
+      crearPetalo(x, y);
+    }, 2000);
+
+    function crearPetalo(x, y) {
+      const petalo = document.createElement('img');
+      petalo.className = 'petalo';
+      petalo.src = 'petalo.png';
+      petalo.style.left = x + 'px';
+      petalo.style.top = y + 'px';
+      document.body.appendChild(petalo);
+
+      setTimeout(() => {
+        const rect = petalo.getBoundingClientRect();
+        petalo.classList.add('petalo-detenido');
+        const offsetX = (Math.random() - 0.5) * 30;
+        const offsetY = Math.random() * 10;
+        petalo.style.left = (rect.left + offsetX) + 'px';
+        petalo.style.top = (window.scrollY + window.innerHeight * 0.5 + offsetY) + 'px';
+      }, 6000);
+    }
+
+    const button = document.getElementById('graciasBtn');
+    button.addEventListener('click', () => {
+      alert('Siempre serás importante. Gracias por leer esto.');
+      for (let i = 0; i < 30; i++) {
+        createHeart();
+      }
+    });
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 4000);
+    }
+
+// Toggle menú animado
+const titulo = document.querySelector('header h1');
+const menuRamificado = document.getElementById('menuRamificado');
+const letrero = document.querySelector('.letrero-minecraft');
+
+titulo.addEventListener('click', () => {
+  menuRamificado.classList.toggle('menu-abierto');
+  if (menuRamificado.classList.contains('menu-abierto')) {
+    letrero.style.display = 'none';
+  } else {
+    letrero.style.display = 'block';
+  }
+});
+
+const tooltip = document.getElementById("tooltipMagia");
+const rosaIzq = document.getElementById("rosaIzq");
+const rosaDer = document.getElementById("rosaDer");
+
+function mostrarTooltip(elemento, lado) {
+  const rect = elemento.getBoundingClientRect();
+  const scrollTop = window.scrollY;
+  const scrollLeft = window.scrollX;
+
+  tooltip.style.opacity = "1";
+
+  // Mostrar debajo de la rosa
+  tooltip.style.top = (rect.bottom + scrollTop + 6) + "px";
+
+  if (lado === "izq") {
+    tooltip.style.left = (rect.left + scrollLeft) + "px";
+  } else {
+    tooltip.style.left = (rect.right + scrollLeft - tooltip.offsetWidth) + "px";
+  }
+}
+
+function ocultarTooltip() {
+  tooltip.style.opacity = "0";
+}
+
+rosaIzq.addEventListener("mouseenter", () => mostrarTooltip(rosaIzq, "izq"));
+rosaIzq.addEventListener("mouseleave", ocultarTooltip);
+
+rosaDer.addEventListener("mouseenter", () => mostrarTooltip(rosaDer, "der"));
+rosaDer.addEventListener("mouseleave", ocultarTooltip);
+</script>
+</body>
+</html>
