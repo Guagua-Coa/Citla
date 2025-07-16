@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Julio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #d7d2cc, #304352);
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      color: white;
+      font-family: 'Roboto Slab', serif;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
+    .carta {
+      background: #fff;
+      padding: 1.5rem 1.5rem;
+      border-radius: 1rem;
+      max-width: 700px;
+      margin: 2rem auto 4rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      font-family: 'Roboto Slab', serif;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+    .carta p {
+      white-space: pre-line;
+      font-size: 1rem;
+    }
+    .firma {
+      margin-top: 2rem;
+      text-align: right;
+      font-style: italic;
+      color: #7b2ff7;
+    }
+    .spotify-embed {
+      max-width: 700px;
+      margin: 1.5rem auto;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 1;
+    }
+    .btn-center {
+      text-align: center;
+      margin: 2rem 1rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    button {
+      background: #7b2ff7;
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(123,47,247,0.6);
+      transition: background 0.3s ease;
+      font-family: 'Roboto Slab', serif;
+    }
+    button:hover {
+      background: #f107a3;
+    }
+    .heart {
+      position: fixed;
+      top: 100%;
+      font-size: 2rem;
+      color: #f107a3;
+      animation: floatUp 4s linear forwards;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    @keyframes floatUp {
+      to {
+        transform: translateY(-150vh);
+        opacity: 0;
+      }
+    }
+    .contenedor-flor-mensaje {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      max-width: 220px;
+      font-style: italic;
+      z-index: 1000;
+      user-select: none;
+    }
+    .mensaje {
+      color: #6d071a;
+      background: #fff3f2;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-size: 1rem;
+      margin: 0;
+      pointer-events: none;
+    }
+    .flor {
+      width: 80px;
+      user-select: none;
+      pointer-events: none;
+    }
+    .petalo {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      pointer-events: none;
+      image-rendering: pixelated;
+      animation: caerOscilante 10s linear forwards;
+      z-index: 999;
+    }
+    .petalo-detenido {
+  animation: none !important;
+  position: absolute;
+  z-index: 0;
+}
+@keyframes caerOscilante {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  25% {
+    transform: translate(-20px, 25vh);
+  }
+  50% {
+    transform: translate(20px, 40vh);
+  }
+  75% {
+    transform: translate(-15px, 45vh);
+  }
+  100% {
+    transform: translate(0, 50vh);
+    opacity: 1; /* no se desvanece */
+  }
+}
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      .carta {
+        padding: 1rem;
+      }
+      .carta p {
+        font-size: 0.95rem;
+      }
+      button {
+        padding: 0.8rem 2rem;
+        font-size: 0.9rem;
+      }
+      .contenedor-flor-mensaje {
+        max-width: 150px;
+        top: 0.5rem;
+        right: 0.5rem;
+      }
+      .flor {
+        width: 60px;
+      }
+      .mensaje {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Julio</h1>
+  </header>
+
+  <div class="carta">
+    <p>
+Mis primeros 15 dias sin ti, al principio pense que no podria sin ti, y hoy en dia sigo pensando como estar sin ti, es como si cayeran miles de cuchillos hacia mi.
+y cada dia solo aseguro que no puedo sin ti, cada vez que te veo solo no puedo evitar dejar de mirarte con ojos de corazon, mi alma no puede permitirse dejar de amarte,
+ni mucho menos dejar de pensar en ti, hoy por fin te vi y no sabes como llenaste mi alma, y no digo que no sepa estar sin ti, solo... es dificil, espero que podamos volver
+el estar juntos, me da fuerza para seguir adelante, gracias por el dia de hoy, me hiciste recordar una vez mas lo lindo que es estar contigo, espero pueda repetirse.
+Por cierto aunque no lo haya dicho, me encanto como quedo tu cabello, queria decirtelo pero tampoco quiero precionarte, y es que es dificil, porque
+por un lado solo quiero esperar, y darte el tiempo que necesitas, por el otro lado solo quiero ir a tus brazos como si no hubiese un mañana.
+    </p>
+    <div class="firma">Como te extraño UnU</div>
+  </div>
+
+
+  <div class="contenedor-flor-mensaje" aria-label="Mensaje de amor con rosa">
+    <div class="mensaje">Te seguiré amando hasta que esta flor se quede sin pétalos.</div>
+    <img src="rosa.png" alt="Rosa" class="flor" />
+  </div>
+
+<script>
+  setInterval(() => {
+    const flor = document.querySelector('.flor');
+    if (!flor) return;
+    const rectFlor = flor.getBoundingClientRect();
+
+    // Coordenadas ajustadas con scroll
+    const x = rectFlor.left + rectFlor.width / 2 - 4;
+    const y = rectFlor.top + window.scrollY + 15; // Ajusta el 15 si quieres más precisión
+
+    crearPetalo(x, y);
+  }, 2000);
+
+  function crearPetalo(x, y) {
+    const petalo = document.createElement('img');
+    petalo.className = 'petalo';
+    petalo.src = 'petalo.png';
+    petalo.style.left = x + 'px';
+    petalo.style.top = y + 'px';
+
+    document.body.appendChild(petalo);
+
+    setTimeout(() => {
+      const rect = petalo.getBoundingClientRect();
+      petalo.classList.add('petalo-detenido');
+
+      // Simular acumulación con leve variación
+      const offsetX = (Math.random() - 0.5) * 30;
+      const offsetY = Math.random() * 10;
+
+      petalo.style.left = (rect.left + offsetX) + 'px';
+      petalo.style.top = (window.scrollY + window.innerHeight * 0.5 + offsetY) + 'px'; // acumulan a 50% altura
+
+    }, 6000);
+  }
+
+  const button = document.getElementById('graciasBtn');
+  button.addEventListener('click', () => {
+    alert('Siempre serás importante. Gracias por leer esto.');
+    for (let i = 0; i < 30; i++) {
+      createHeart();
+    }
+  });
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '❤️';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+    document.body.appendChild(heart);
+    setTimeout(() => {
+      heart.remove();
+    }, 4000);
+  }
+</script>
+</body>
+</html>
