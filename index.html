@@ -6,6 +6,15 @@
   <title>Para ti</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "cf8a53b2-7c50-4f64-91d0-67b6565034e4",
+    });
+  });
+</script>
   <style>
 body {
   margin: 0;
